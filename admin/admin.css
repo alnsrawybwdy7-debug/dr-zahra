@@ -1,0 +1,117 @@
+:root{
+  --bg:#FBF3EF;
+  --surface:#fff;
+  --ink:#34101F;
+  --ink-soft:#6B3752;
+  --muted:#9C7688;
+  --rose:#C15F82;
+  --rose-deep:#7A2E4C;
+  --gold:#B9873C;
+  --gold-pale:#F1E1BC;
+  --line:rgba(52,16,31,0.10);
+  --whatsapp:#23C05C;
+  --shadow:0 20px 50px -20px rgba(122,46,76,0.32);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Tajawal',sans-serif;
+  line-height:1.7;
+  min-height:100vh;
+}
+h1,h2,.wordmark,.brand{
+  font-family:'Markazi Text','Tajawal',serif;
+}
+a{color:var(--rose-deep);}
+.hidden{display:none !important;}
+.panel{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.card{
+  background:var(--surface);
+  border-radius:24px;
+  padding:32px 28px;
+  width:100%;
+  max-width:420px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.setup-card,.editor{max-width:640px;}
+.brand{color:var(--rose-deep);font-size:1.6rem;font-weight:700;}
+h1{font-size:2rem;margin:8px 0 12px;}
+.muted{color:var(--muted);font-size:.92rem;margin-bottom:18px;}
+label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 8px;color:var(--ink-soft);}
+input,textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+  font:inherit;
+  background:#fff;
+  color:var(--ink);
+}
+textarea{resize:vertical;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;cursor:pointer;font:inherit;font-weight:700;
+  padding:11px 18px;border-radius:12px;
+}
+.btn.primary{background:var(--rose-deep);color:#fff;}
+.btn.ghost{background:transparent;border:1.5px solid var(--rose-deep);color:var(--rose-deep);}
+.btn.danger{background:transparent;border:1.5px solid #b42318;color:#b42318;}
+.back{display:block;margin-top:16px;text-align:center;color:var(--muted);text-decoration:none;}
+.error{color:#b42318;font-size:.88rem;margin:10px 0;}
+.status{background:var(--gold-pale);color:#8C6425;padding:10px 14px;border-radius:12px;margin-bottom:16px;}
+ol{padding-right:18px;color:var(--ink-soft);}
+ol li{margin-bottom:8px;}
+code{background:var(--gold-pale);padding:2px 6px;border-radius:6px;font-size:.85rem;}
+
+.app header{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:16px 24px;background:rgba(251,243,239,.94);
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+}
+.wordmark{font-size:1.45rem;color:var(--rose-deep);font-weight:700;}
+.header-actions{display:flex;align-items:center;gap:14px;}
+.header-actions a{color:var(--ink-soft);text-decoration:none;font-weight:600;}
+.tabs{
+  display:flex;gap:8px;padding:16px 24px 0;flex-wrap:wrap;
+}
+.tab{
+  border:none;background:transparent;cursor:pointer;font:inherit;font-weight:700;
+  color:var(--muted);padding:8px 14px;border-bottom:2px solid transparent;
+}
+.tab.is-active{color:var(--rose-deep);border-color:var(--gold);}
+main{padding:24px;max-width:980px;margin:0 auto;}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+.toolbar-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.list{display:flex;flex-direction:column;gap:12px;}
+.item{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:14px;display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;
+}
+.item img,.thumb{
+  width:72px;height:72px;object-fit:cover;border-radius:12px;background:#F3D9E3;
+}
+.item h3{font-size:1rem;color:var(--rose-deep);margin-bottom:4px;}
+.item p{color:var(--muted);font-size:.86rem;}
+.item-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.overlay{
+  position:fixed;inset:0;background:rgba(52,16,31,.55);
+  display:flex;align-items:center;justify-content:center;padding:16px;z-index:20;
+}
+.editor{max-height:90vh;overflow:auto;}
+.editor-actions{display:flex;gap:10px;margin-top:18px;}
+.preview{width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin:8px 0 12px;}
+
+@media (max-width:640px){
+  .item{grid-template-columns:1fr;}
+  .item-actions{width:100%;}
+  .item-actions .btn{flex:1;}
+}

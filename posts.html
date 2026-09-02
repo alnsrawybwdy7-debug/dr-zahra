@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المنشورات | ZW Dental - د. زهراء وليد عبيد</title>
+<meta name="description" content="منشورات ومقالات توعوية عن صحة الأسنان بقلم د. زهراء وليد عبيد.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="wordmark">
+      <span class="mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-2 0-3.5 1.3-4.5 2-1 .7-2.5.7-3 2.5-.5 1.8.3 3 .8 4.5.5 1.5.2 3 1 5 .6 1.5 1.5 3 2.7 3 .9 0 1-1.5 1.5-3 .3-1 .6-1.5 1.5-1.5s1.2.5 1.5 1.5c.5 1.5.6 3 1.5 3 1.2 0 2.1-1.5 2.7-3 .8-2 .5-3.5 1-5 .5-1.5 1.3-2.7.8-4.5-.5-1.8-2-1.8-3-2.5-1-.7-2.5-2-4.5-2Z"/></svg>
+      </span>
+      ZW Dental
+    </a>
+    <div class="nav-links">
+      <a href="index.html#about">نبذة عني</a>
+      <a href="posts.html" style="color:var(--rose-deep); font-weight:700;">المنشورات</a>
+      <a href="index.html#services">الخدمات</a>
+      <a href="cases.html">حالات العيادة</a>
+      <a href="index.html#research">النشاط الأكاديمي</a>
+      <a href="index.html#faq">الأسئلة الشائعة</a>
+      <a href="index.html#contact">تواصل معي</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/9647824391847?text=السلام%20عليكم%20دكتورة%20زهراء،%20أريد%20حجز%20موعد." target="_blank" rel="noopener">
+      احجزي موعد
+    </a>
+  </nav>
+</header>
+
+<section class="posts" id="posts" style="padding-top:56px;">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> منشورات</div>
+      <h2>منشوراتي</h2>
+      <p>اضغطي على أي صورة لقراءة المنشور كامل.</p>
+    </div>
+    <div class="grid-gallery" id="contentGrid" data-collection="posts">
+      <p class="empty-state">جاري تحميل المنشورات...</p>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="إغلاق">×</button>
+    <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-body">
+      <span class="modal-tag" id="modalTag"></span>
+      <h3 id="modalTitle"></h3>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="wordmark">
+          <span class="mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-2 0-3.5 1.3-4.5 2-1 .7-2.5.7-3 2.5-.5 1.8.3 3 .8 4.5.5 1.5.2 3 1 5 .6 1.5 1.5 3 2.7 3 .9 0 1-1.5 1.5-3 .3-1 .6-1.5 1.5-1.5s1.2.5 1.5 1.5c.5 1.5.6 3 1.5 3 1.2 0 2.1-1.5 2.7-3 .8-2 .5-3.5 1-5 .5-1.5 1.3-2.7.8-4.5-.5-1.8-2-1.8-3-2.5-1-.7-2.5-2-4.5-2Z"/></svg>
+          </span>
+          ZW Dental
+        </a>
+        <p style="margin-top:14px;">صفحة تعريفية للدكتورة زهراء وليد عبيد،   طب أسنان في جامعة الحلة.</p>
+      </div>
+      <div>
+        <h4>تواصل معي</h4>
+        <div class="foot-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.9 4.43-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.43 9.9-9.9 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.36-2.9-7-2.94Z"/></svg>
+          07824391847
+        </div>
+        
+        <div class="foot-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-9C.6 8.1 2.3 4.5 5.8 4c2-.28 3.4.7 4.2 1.7.8-1 2.2-1.98 4.2-1.7 3.5.5 5.2 4.1 3.3 8-2.5 4.65-9.5 9-9.5 9Z"/></svg>
+          جامعة الحلة - محافظة بابل
+        </div>
+        <a class="foot-cta" href="https://wa.me/9647824391847?text=السلام%20عليكم%20دكتورة%20زهراء،%20أريد%20حجز%20موعد." target="_blank" rel="noopener">
+          ارسل لي رساله  على واتساب
+        </a>
+      </div>
+      <div>
+        <h4>تابعيني</h4>
+        <div class="foot-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          <a href="#"> in0px</a>
+        </div>
+        <div class="foot-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.4 2.3 1.9 3.9 4.4 4.1v3c-1.6.1-3-.4-4.4-1.3v6.9c0 3.4-2.7 6.1-6.1 6.1S4.3 17.1 4.3 13.7c0-3.3 2.6-6 5.9-6.1v3.1c-1.6.1-2.9 1.4-2.9 3 0 1.7 1.4 3 3 3s3-1.3 3-3V2h3.2Z"/></svg>
+          <a href="#">iopvllh</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <span>© 2026 ZW Dental — د. زهراء وليد عبيد</span>
+      <span>صُممت بعناية لخدمة مريضاتي وطلبتي</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/9647824391847?text=السلام%20عليكم%20دكتورة%20زهراء،%20أريد%20حجز%20موعد." target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.46 0-9.9 4.43-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.43 9.9-9.9 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.36-2.9-7-2.94Zm5.8 14.13c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.37-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.4.27-.29.58-.36.78-.36h.55c.18 0 .41-.03.64.49.24.56.8 1.94.87 2.08.07.14.11.3.02.49-.09.19-.14.31-.28.47-.14.16-.3.36-.42.48-.14.14-.29.29-.13.57.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.18-.19.75-.87.95-1.17.2-.29.4-.24.66-.14.28.1 1.75.83 2.05.98.3.15.5.22.57.34.08.13.08.72-.16 1.4Z"/></svg>
+</a>
+
+<script type="module" src="js/site.js"></script>
+
+</body>
+</html>
