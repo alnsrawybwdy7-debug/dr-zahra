@@ -7,14 +7,17 @@ import {
   doc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-storage.js";
-import { db, storage } from "./firebase.js";
+import { db, auth } from "./firebase.js";
 
 export const COLLECTIONS = {
   posts: "posts",
   cases: "cases",
   research: "research"
 };
+
+// رابط الـ Cloudflare Worker المسؤول عن رفع الصور إلى R2.
+// بدّل هذا بالرابط الحقيقي بعد نشر الـ Worker (شوف تعليمات النشر).
+const UPLOAD_ENDPOINT = "https://dr-zahra-upload.YOUR-SUBDOMAIN.workers.dev";
 
 function toMillis(value) {
   if (!value) return 0;
@@ -45,10 +48,29 @@ export async function removeItem(collectionName, id) {
   await deleteDoc(doc(db, collectionName, id));
 }
 
+// رفع الصور صار عبر Cloudflare R2 بدل Firebase Storage
+// (Firebase Storage صار يتطلب خطة Blaze إجبارياً من فبراير 2026)
 export async function uploadFile(file, folder) {
-  const safe = file.name.replace(/[^\w.\u0600-\u06FF-]+/g, "-");
-  const path = `${folder}/${Date.now()}-${safe}`;
-  const fileRef = ref(storage, path);
-  await uploadBytes(fileRef, file, { contentType: file.type || "application/octet-stream" });
-  return getDownloadURL(fileRef);
+  const user = auth.currentUser;
+  if (!user) throw new Error("لازم تسجل دخول قبل رفع الصور.");
+
+  const idToken = await user.getIdToken();
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("folder", folder);
+
+  const res = await fetch(UPLOAD_ENDPOINT, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${idToken}` },
+    body: formData
+  });
+
+  if (!res.ok) {
+    const msg = await res.text().catch(() => "");
+    throw new Error(msg || "فشل رفع الصورة، جرب مرة ثانية.");
+  }
+
+  const data = await res.json();
+  return data.url;
 }
