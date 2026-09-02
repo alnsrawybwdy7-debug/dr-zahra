@@ -17,7 +17,7 @@ export const COLLECTIONS = {
 
 // رابط الـ Cloudflare Worker المسؤول عن رفع الصور إلى R2.
 // بدّل هذا بالرابط الحقيقي بعد نشر الـ Worker (شوف تعليمات النشر).
-const UPLOAD_ENDPOINT = "https://dr-zahra-upload.YOUR-SUBDOMAIN.workers.dev";
+const UPLOAD_ENDPOINT = "https://dr-zahra-upload.alnsrawy.workers.dev";
 
 function toMillis(value) {
   if (!value) return 0;
