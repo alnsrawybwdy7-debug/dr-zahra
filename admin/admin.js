@@ -12,7 +12,6 @@ import {
   removeItem,
   uploadFile
 } from "../js/content.js";
-import { SEED_POSTS, SEED_CASES } from "../js/seed-content.js";
 
 const setupView = document.getElementById("setupView");
 const loginView = document.getElementById("loginView");
@@ -20,7 +19,6 @@ const appView = document.getElementById("appView");
 const listEl = document.getElementById("list");
 const statusMsg = document.getElementById("statusMsg");
 const sectionTitle = document.getElementById("sectionTitle");
-const seedBtn = document.getElementById("seedBtn");
 const overlay = document.getElementById("editorOverlay");
 const editorForm = document.getElementById("editorForm");
 const editorTitle = document.getElementById("editorTitle");
@@ -76,8 +74,6 @@ async function refresh() {
   items = await listItems(COLLECTIONS[currentTab]);
   setStatus(items.length ? "" : "ماكو عناصر بهالقسم بعد.");
   renderList();
-  const canSeed = currentTab !== "research" && items.length === 0;
-  seedBtn.classList.toggle("hidden", !canSeed);
 }
 
 function renderList() {
@@ -198,16 +194,6 @@ async function saveItem(event) {
   }
 }
 
-async function importSeed() {
-  const source = currentTab === "cases" ? SEED_CASES : SEED_POSTS;
-  if (!source.length) return;
-  if (!confirm("راح تنضاف النصوص الحالية الموجودة بالموقع إلى فايربيس. تكمل؟")) return;
-  for (const item of source) {
-    await createItem(COLLECTIONS[currentTab], item);
-  }
-  await refresh();
-}
-
 if (!isFirebaseConfigured()) {
   show(setupView);
 } else {
@@ -228,12 +214,6 @@ if (!isFirebaseConfigured()) {
   document.getElementById("logoutBtn").addEventListener("click", () => signOut(auth));
   document.getElementById("addBtn").addEventListener("click", () => openEditor(null));
   document.getElementById("cancelBtn").addEventListener("click", closeEditor);
-  document.getElementById("seedBtn").addEventListener("click", () => {
-    importSeed().catch((err) => {
-      console.error(err);
-      setStatus("فشل استيراد المحتوى.");
-    });
-  });
   editorForm.addEventListener("submit", saveItem);
 
   document.getElementById("fieldImage")?.addEventListener("change", (e) => {
